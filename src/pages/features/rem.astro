@@ -43,12 +43,12 @@ const styles = StyleSheet.create({
 
         <h3>How it works</h3>
         <p>
-          <code>1rem</code> is based on a root font size, adjusted by the device's font scale.
+          <code>1rem</code> is resolved from a root font size and automatically respects the user’s font scaling preferences.
         </p>
 
         <ul>
-          <li>iOS default: <strong>17</strong></li>
-          <li>Android default: <strong>14</strong></li>
+          <li>Native platforms default to <strong>14</strong></li>
+          <li>Web uses the browser root font size (usually <strong>16</strong>px)</li>
         </ul>
 
         <h3>Configuration</h3>
