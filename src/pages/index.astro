@@ -1,10 +1,10 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Header from "../components/Header";
-import MainWrapper from "../layouts/MainWrapper.astro";
-import Aside from "../components/Aside.astro";
-import Content from "../layouts/Content.astro";
-import Footer from "../components/Footer";
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header';
+import MainWrapper from '../layouts/MainWrapper.astro';
+import Aside from '../components/Aside.astro';
+import Content from '../layouts/Content.astro';
+import Footer from '../components/Footer';
 import NavButton from '../components/NavButton.astro';
 ---
 
@@ -17,13 +17,15 @@ import NavButton from '../components/NavButton.astro';
     <main>
       <Content title="What is Fluffle?">
         <p>
-          Fluffle is a styling library for React Native that brings advanced styling capabilities inspired by Sass and CSS, while fully respecting the native React Native paradigm.
+          Fluffle is a styling library for React Native that brings advanced styling capabilities
+          inspired by Sass and CSS, while fully respecting the native React Native paradigm.
         </p>
 
         <br />
 
         <p>
-          Fluffle enhances the styling process and productivity by allowing you to write styles that are:
+          Fluffle enhances the styling process and productivity by allowing you to write styles that
+          are:
         </p>
 
         <ul>
@@ -34,34 +36,64 @@ import NavButton from '../components/NavButton.astro';
 
         <h3>Available today</h3>
         <ul>
-          <li><strong>Typed StyleSheet API</strong> – Full TypeScript support with strict typing</li>
+          <li>
+            <strong>Typed StyleSheet API</strong> – Full TypeScript support with strict typing
+          </li>
           <li><strong>Nested styles</strong> – Organize styles hierarchically, similar to Sass</li>
-          <li><strong>rem units</strong> – Use scalable units like <code>fontSize: "1.5rem"</code></li>
+          <li>
+            <strong>rem units</strong> – Use scalable units like <code>fontSize: "1.5rem"</code>
+          </li>
         </ul>
 
         <h3>Upcoming features</h3>
         <ul>
-          <li><strong>Shorthand properties</strong> – Object-based syntax for spacing and layout and more powerful shorthands</li>
+          <li>
+            <strong>Shorthand properties</strong> – Object-based syntax for spacing and layout and more
+            powerful shorthands
+          </li>
           <li><strong>Mixins</strong> – Reusable style composition via <code>$include</code></li>
         </ul>
 
+        <br>
+        
         <p>
-          This library is compatible with both the <a
-            href="https://docs.expo.dev/more/expo-cli/" target="_blank" rel="noopener noreferrer"
-            >Expo CLI</a
-          > and <a
+          This library is compatible with both the
+          <a href="https://docs.expo.dev/more/expo-cli/" target="_blank" rel="noopener noreferrer">
+            Expo CLI
+          </a>
+          and
+          <a
             href="https://reactnative.dev/docs/getting-started-without-a-framework"
-            target="_blank" rel="noopener noreferrer"
-            >React Native CLI</a
-          >, providing flexibility for developers across a variety of project
-          setups. For new projects, we recommend using the Expo CLI, as it
-          simplifies the development process by abstracting much of the
-          configuration typically required when using the React Native CLI. This
-          approach aligns with the guidance provided in the official React
-          Native documentation, which suggests starting with a framework like
-          Expo for ease of use and faster setup. For more details, you can
-          explore the <a href="https://reactnative.dev/docs/environment-setup"
-            target="_blank" rel="noopener noreferrer">React Native environment setup guide</a
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            React Native CLI
+          </a>, giving developers flexibility across different project setups.
+        </p>
+
+        <br />
+
+        <p>
+          For new projects, we recommend using the Expo CLI. It simplifies the development
+          experience by abstracting much of the native configuration typically required when working
+          directly with the React Native CLI.
+        </p>
+
+        <br />
+
+        <p>
+          This recommendation also aligns with the official React Native guidance, which suggests
+          starting with a framework like Expo for faster setup and a smoother developer experience.
+        </p>
+
+        <br />
+
+        <p>
+          For more information, check the
+          <a
+            href="https://reactnative.dev/docs/environment-setup"
+            target="_blank"
+            rel="noopener noreferrer">React Native environment setup documentation</a
           >.
         </p>
 
