@@ -18,6 +18,13 @@ export const sidebar = [
     ],
   },
   {
+    title: 'Examples',
+    href: '/examples/interactive-card-demo',
+    items: [
+      { title: 'Interactive card demo', href: '/examples/interactive-card-demo' },
+    ],
+  },
+  {
     title: 'Roadmap',
     href: '/roadmap',
     items: [

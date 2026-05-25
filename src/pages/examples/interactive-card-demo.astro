@@ -1,0 +1,57 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import Header from "../../components/Header";
+import MainWrapper from "../../layouts/MainWrapper.astro";
+import Aside from "../../components/Aside.astro";
+import Content from "../../layouts/Content.astro";
+import Footer from "../../components/Footer";
+import NavButton from '../../components/NavButton.astro';
+---
+
+<Layout title="Interactive card demo | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="Interactive card demo">
+        <p>
+          Try the features in action with this interactive example. Edit the code and see the results in real-time.
+        </p>
+
+        <br>
+
+        <p>
+          This demo showcases a real app with an interactive playground containing a card component built with nested styles and <code>rem</code> units, demonstrating how to structure complex layouts in a clean and maintainable way.
+        </p>
+
+        <iframe
+          src="https://snack.expo.dev/@bibliolabs_official/react-native-fluffle---interactive-card-demo?platform=ios&theme=dark"
+          width="100%"
+          height="600"
+          style="border: 1px solid hsl(330, 50%, 70%); border-radius: 1rem; margin-top: 1rem;"
+          allow="clipboard-write"
+          loading="lazy"
+          title="React Native Fluffle Demo"
+        />
+
+        <h3>What to try</h3>
+        <ul>
+          <li>Use the buttons to interact with the card component in the playground tab</li>
+          <li>Modify the padding and margin values in the style definitions to see how spacing affects the layout</li>
+          <li>Change colors in the style definitions to customize the card appearance</li>
+          <li>Adjust font sizes to see how <code>rem</code> units scale proportionally</li>
+          <li>Explore the nested style structure to understand how hierarchy improves organization</li>
+        </ul>
+
+        <NavButton
+          prev={{ title: 'Features | rem units', href: '/features/rem' }}
+          next={{ title: 'Roadmap | Shorthands', href: '/roadmap/shorthands' }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>
