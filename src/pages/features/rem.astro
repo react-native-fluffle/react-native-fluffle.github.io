@@ -1,12 +1,12 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import Header from "../../components/Header";
-import MainWrapper from "../../layouts/MainWrapper.astro";
-import Aside from "../../components/Aside.astro";
-import Content from "../../layouts/Content.astro";
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header';
+import MainWrapper from '../../layouts/MainWrapper.astro';
+import Aside from '../../components/Aside.astro';
+import Content from '../../layouts/Content.astro';
 import Code from '../../components/Code.astro';
 import NavButton from '../../components/NavButton.astro';
-import Footer from "../../components/Footer";
+import Footer from '../../components/Footer';
 ---
 
 <Layout title="rem units | Fluffle">
@@ -18,8 +18,7 @@ import Footer from "../../components/Footer";
     <main>
       <Content title="rem units">
         <p>
-          Fluffle supports <strong>rem units</strong> for scalable and consistent sizing
-          across devices.
+          Fluffle supports <strong>rem units</strong> for scalable and consistent sizing across devices.
         </p>
 
         <h3>Basic usage</h3>
@@ -43,7 +42,8 @@ const styles = StyleSheet.create({
 
         <h3>How it works</h3>
         <p>
-          <code>1rem</code> is resolved from a root font size and automatically respects the user’s font scaling preferences.
+          <code>1rem</code> is resolved from a root font size and automatically respects the user’s font
+          scaling preferences.
         </p>
 
         <ul>
@@ -52,14 +52,18 @@ const styles = StyleSheet.create({
         </ul>
 
         <h3>Configuration</h3>
-        <p>You can override the root font size by adding this to your app's initialization file (e.g. <code>App.tsx</code>):</p>
+        <p>
+          You can override the root font size by adding this to your app's initialization file (e.g. <code
+            >App.tsx</code
+          >):
+        </p>
 
         <Code
           lang="ts"
           code={`
-import { StyleSheet } from "@bibliolab/react-native-fluffle";
+import { configureRem } from "@bibliolab/react-native-fluffle";
 
-StyleSheet.configRem.setRootFontSize(16);
+configureRem({ rootFontSize: 12 });
 `}
         />
 
@@ -71,7 +75,10 @@ StyleSheet.configRem.setRootFontSize(16);
 
         <NavButton
           prev={{ title: 'Features | Nesting', href: '/features/nesting' }}
-          next={{ title: 'Examples | Interactive card demo', href: '/examples/interactive-card-demo' }}
+          next={{
+            title: 'Examples | Interactive card demo',
+            href: '/examples/interactive-card-demo',
+          }}
         />
       </Content>
     </main>
