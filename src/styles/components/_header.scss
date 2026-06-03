@@ -36,6 +36,25 @@
     border-radius: 50%;
   }
 
+  &__versions {
+    padding-block: 0.4rem;
+    border: var(--border-width-small) var(--border-base-style) var(--clr-neutral-700);
+    border-radius: 6px;
+
+    background-color: var(--clr-neutral-900);
+    color: var(--clr-neutral-100);
+
+    &:focus {
+      outline: none;
+      border-color: var(--clr-base-400);
+    }
+
+    option {
+      background-color: var(--clr-neutral-900);
+      color: var(--clr-neutral-100);
+    }
+  }
+
   @include breakpoints.respond-to(sm) {
     &__logo {
       position: static;

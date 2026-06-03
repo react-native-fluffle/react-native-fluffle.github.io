@@ -1,0 +1,105 @@
+---
+import Layout from '../../../../layouts/Layout.astro';
+import Header from '../../../../components/Header.astro';
+import MainWrapper from '../../../../layouts/MainWrapper.astro';
+import Aside from '../../../../components/Aside.astro';
+import Content from '../../../../layouts/Content.astro';
+import Code from '../../../../components/Code.astro';
+import NavButton from '../../../../components/NavButton.astro';
+import Footer from '../../../../components/Footer';
+---
+
+<Layout title="rem units (legacy v0.3) | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="rem units (legacy v0.3)">
+        <div class="callout callout--tip">
+          <div class="callout__title">
+            <i class="fa-solid fa-circle-info" aria-hidden="true"></i>
+            Legacy documentation (v0.3)
+          </div>
+
+          <p>
+            This page documents the behavior of Fluffle <strong>v0.3</strong>. Starting in <strong
+              >v0.4</strong
+            >, <code>configureRem()</code> was removed.
+          </p>
+
+          <p>
+            Aside from the removal of <code>configureRem()</code>, the rem API remains unchanged.
+            See the <a href="/features/rem">latest rem documentation</a> for current behavior.
+          </p>
+        </div>
+
+        <p>
+          Fluffle supports <strong>rem units</strong> for scalable and consistent sizing across devices.
+        </p>
+
+        <h3>Basic usage</h3>
+        <p>
+          Use <code>rem</code> values as strings in supported style properties.
+        </p>
+
+        <Code
+          lang="ts"
+          code={`const styles = StyleSheet.create({
+  text: {
+    fontSize: "1rem",
+  },
+  container: {
+    padding: "2rem",
+  },
+});
+`}
+        />
+
+        <h3>How it works</h3>
+        <p>
+          <code>1rem</code> is resolved from a root font size and automatically respects the user’s font
+          scaling preferences.
+        </p>
+
+        <ul>
+          <li>Native platforms default to <strong>14</strong></li>
+          <li>Web uses the browser root font size (usually <strong>16</strong>px)</li>
+        </ul>
+
+        <h3>Configuration</h3>
+        <p>
+          You can override the root font size by adding this to your app's initialization file (e.g. <code
+            >App.tsx</code
+          >):
+        </p>
+
+        <Code
+          lang="ts"
+          code={`
+import { configureRem } from "@bibliolab/react-native-fluffle";
+
+configureRem({ rootFontSize: 12 });
+`}
+        />
+
+        <h3>Notes</h3>
+        <ul>
+          <li>Only supported style properties accept <code>rem</code></li>
+          <li>Values are resolved to numbers at runtime</li>
+        </ul>
+
+        <NavButton
+          prev={{ title: 'Features | Nesting', href: '/features/nesting' }}
+          next={{
+            title: 'Examples | Interactive card demo',
+            href: '/examples/interactive-card-demo',
+          }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+
+  <Footer />
+</Layout>

@@ -1,0 +1,33 @@
+---
+const pathname = Astro.url.pathname;
+const isLegacy = pathname.startsWith('/legacy/v0.3');
+---
+
+<header class="header">
+  <nav class="header__wrapper | wrapper">
+    <div class="header__branding">
+      <img class="header__logo" src="/images/icon.png" alt="react native fluffle logo" />
+
+      <div class="header__title-wrapper">
+        <h1>Fluffle</h1>
+        <h2>Built to compose</h2>
+      </div>
+    </div>
+
+    <div class="header__options">
+      <select class="header__versions" onchange="window.location.href=this.value">
+        <option value="/" selected={!isLegacy}> v0.4 </option>
+
+        <option value="/legacy/v0.3/features/rem" selected={isLegacy}> v0.3 </option>
+      </select>
+
+      <a class="header__github" href="https://github.com/bibliolabsofficial/react-native-fluffle">
+        <i class="fa-brands fa-github" aria-hidden="true"></i>
+      </a>
+
+      <a class="header__sponsor" href="https://github.com/sponsors/filipe-2">
+        <i class="fa-regular fa-heart" aria-hidden="true"></i>
+      </a>
+    </div>
+  </nav>
+</header>;

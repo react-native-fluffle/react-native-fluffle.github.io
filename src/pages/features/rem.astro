@@ -1,6 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import Header from '../../components/Header';
+import Header from '../../components/Header.astro';
 import MainWrapper from '../../layouts/MainWrapper.astro';
 import Aside from '../../components/Aside.astro';
 import Content from '../../layouts/Content.astro';
@@ -28,8 +28,7 @@ import Footer from '../../components/Footer';
 
         <Code
           lang="ts"
-          code={`
-const styles = StyleSheet.create({
+          code={`const styles = StyleSheet.create({
   text: {
     fontSize: "1rem",
   },
@@ -50,22 +49,6 @@ const styles = StyleSheet.create({
           <li>Native platforms default to <strong>14</strong></li>
           <li>Web uses the browser root font size (usually <strong>16</strong>px)</li>
         </ul>
-
-        <h3>Configuration</h3>
-        <p>
-          You can override the root font size by adding this to your app's initialization file (e.g. <code
-            >App.tsx</code
-          >):
-        </p>
-
-        <Code
-          lang="ts"
-          code={`
-import { configureRem } from "@bibliolab/react-native-fluffle";
-
-configureRem({ rootFontSize: 12 });
-`}
-        />
 
         <h3>Notes</h3>
         <ul>

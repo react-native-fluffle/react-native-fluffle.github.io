@@ -20,9 +20,7 @@ export const sidebar = [
   {
     title: 'Examples',
     href: '/examples/interactive-card-demo',
-    items: [
-      { title: 'Interactive card demo', href: '/examples/interactive-card-demo' },
-    ],
+    items: [{ title: 'Interactive card demo', href: '/examples/interactive-card-demo' }],
   },
   {
     title: 'Roadmap',
@@ -32,13 +30,21 @@ export const sidebar = [
       { title: 'Mixins', href: '/roadmap/mixins' },
     ],
   },
-  {
+    {
     title: 'Contributing',
     href: '/contributing/issues',
     items: [
       { title: 'Issues and bugs', href: '/contributing/issues' },
       { title: 'Pull requests', href: '/contributing/pull-requests' },
       { title: 'Donate', href: '/contributing/donate' },
+    ],
+  },
+  {
+    title: 'Versions',
+    href: '/migration/v0.5',
+    items: [
+      { title: 'Migration to v0.4', href: '/migration/v0.4' },
+      { title: 'Legacy docs (v0.3)', href: '/legacy/v0.3/features/rem' },
     ],
   },
 ];

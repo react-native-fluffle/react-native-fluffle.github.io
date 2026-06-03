@@ -13,6 +13,30 @@
     margin-bottom: 10px;
   }
 
+  .callout {
+    margin-block: 1rem 1.5rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    border: 1px solid var(--clr-neutral-700);
+    background-color: var(--clr-neutral-900);
+
+    &__title {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+
+      font-weight: var(--fw-bold);
+      color: var(--clr-base-300);
+
+      margin-bottom: 0.75rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+  }
+
   p {
     @include utils.fluid-size(0.8125rem, 1rem, font-size);
   }
