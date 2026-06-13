@@ -1,0 +1,111 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import MainWrapper from '../../layouts/MainWrapper.astro';
+import Aside from '../../components/Aside.astro';
+import Content from '../../layouts/Content.astro';
+import Code from '../../components/Code.astro';
+import NavButton from '../../components/NavButton.astro';
+import Footer from '../../components/Footer';
+---
+
+<Layout title="Colors API | Fluffle">
+  <Header />
+
+  <MainWrapper>
+    <Aside />
+
+    <main>
+      <Content title="Colors API">
+        <p>
+          Fluffle provides a built-in <strong>Colors API</strong> that adds support for modern <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch"
+            >OKLCH color space</a
+          > while remaining fully compatible with React Native.
+        </p>
+
+        <h3>Basic usage</h3>
+        <p>
+          Use the <code>Colors.oklch()</code> helper to define perceptual colors inside your styles.
+        </p>
+
+        <Code
+          lang="ts"
+          code={`import { StyleSheet, Colors } from '@bibliolab/react-native-fluffle';
+
+const { oklch } = Colors;
+
+const styles = StyleSheet.create({
+  title: {
+    color: oklch(0.65, 0.1233, 348.23),
+  },
+});
+`}
+        />
+
+        <h3>API</h3>
+
+        <Code
+          lang="ts"
+          code={`Colors.oklch(
+  l: number,
+  c: number,
+  h: number,
+  alpha?: number
+)`}
+        />
+
+        <ul>
+          <li><code>l</code> — Lightness (0–1)</li>
+          <li><code>c</code> — Chroma (color intensity)</li>
+          <li><code>h</code> — Hue (0–360)</li>
+          <li><code>alpha</code> — Optional opacity (default: 1)</li>
+        </ul>
+
+        <h3>How it works</h3>
+
+        <ul>
+          <li>On <strong>web</strong>, colors are serialized as native CSS <code>oklch()</code></li>
+          <li>
+            On <strong>native</strong>, colors are converted to hex / hex8 via <code>culori</code>
+          </li>
+          <li>All values are resolved into valid <code>ColorValue</code> types at runtime</li>
+        </ul>
+
+        <h3>Why oklch?</h3>
+
+        <ul>
+          <li>More perceptually uniform than RGB/HSL</li>
+          <li>Easier to build consistent design systems</li>
+          <li>Better control over lightness-based scaling</li>
+          <li>Improved theme generation and accessibility</li>
+        </ul>
+
+        <h3>Notes</h3>
+
+        <ul>
+          <li>OKLCH values are automatically transformed at runtime</li>
+          <li>No manual conversion is required</li>
+          <li>Fully compatible with all React Native style properties that accept colors</li>
+          <li>
+            Unlike CSS <code>oklch()</code>, Fluffle uses the standard JavaScript syntax, so values
+            must be comma-separated instead of CSS-style space-separated syntax:
+            <Code lang="ts" code="oklch(0.65, 0.12, 240)" />
+          </li>
+        </ul>
+
+        <NavButton
+          prev={{
+            title: 'Features | rem units',
+            href: '/features/rem',
+          }}
+          next={{
+            title: 'Examples | Interactive card demo',
+            href: '/examples/interactive-card-demo',
+          }}
+        />
+      </Content>
+    </main>
+  </MainWrapper>
+  <Footer />
+</Layout>

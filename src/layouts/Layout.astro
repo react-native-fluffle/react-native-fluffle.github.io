@@ -12,10 +12,27 @@ import '../styles/main.scss';
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="description" content="React Native Fluffle documentation website." />
     <meta name="viewport" content="width=device-width" />
-    <link rel="icon" type="image/svg+xml" href="/images/icon.png" />
+    <meta name="description" content="React Native Fluffle documentation website." />
+    <meta
+      name="keywords"
+      content="react, react native, expo, fluffle, styles, styling library, rem units, oklch, nesting, stylesheet"
+    />
+    <link rel="canonical" href="https://react-native-fluffle.github.io" />
+    <link rel="icon" type="image/png" href="/images/icon.png" />
     <link rel="stylesheet" href="/misc/font-awesome/css/all.css" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content="React Native Fluffle documentation website." />
+    <meta property="og:image" content="/images/og-image.png" />
+    <meta property="og:url" content="https://react-native-fluffle.github.io" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content="React Native Fluffle documentation website." />
+    <meta name="twitter:image" content="/images/og-image.png" />
+
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>

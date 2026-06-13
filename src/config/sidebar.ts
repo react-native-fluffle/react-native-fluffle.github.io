@@ -15,6 +15,7 @@ export const sidebar = [
       { title: 'Typing & Intellisense', href: '/features/typing-intellisense' },
       { title: 'Nesting', href: '/features/nesting' },
       { title: 'rem units', href: '/features/rem' },
+      { title: 'Colors API', href: '/features/colors-api' },
     ],
   },
   {
