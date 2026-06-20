@@ -8,23 +8,27 @@ const isActive = (path: string) => pathname === path;
 <aside class="aside">
   <nav class="aside__wrapper">
     <ul class="aside__topics">
-      {sidebar.map((topic) => (
-        <li class="aside__topic">
-          <div class="aside__topic-title">
-            <a href={topic.href}>{topic.title}</a>
-          </div>
+      {
+        sidebar.map((topic) => (
+          <li class="aside__topic">
+            <div class="aside__topic-title">
+              <a href={topic.href}>{topic.title}</a>
+            </div>
 
-          <ul class="aside__topic-items">
-            {topic.items.map((item) => (
-              <li class="aside__topic-item">
-                <a href={item.href} class={isActive(item.href) ? "active" : ""}>
-                  {item.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </li>
-      ))}
+            <ul class="aside__topic-items">
+              {topic.items.map((item) => (
+                <li
+                  class={`aside__topic-item ${isActive(item.href) ? 'aside__topic-item--active' : ''}`}
+                >
+                  <a href={item.href} class={isActive(item.href) ? 'active' : ''}>
+                    {item.title}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </li>
+        ))
+      }
     </ul>
   </nav>
 </aside>

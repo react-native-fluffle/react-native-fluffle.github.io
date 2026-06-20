@@ -13,8 +13,8 @@
     "lint": "eslint ."
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.4",
-    "astro": "^6.1.9",
+    "@astrojs/react": "^5.0.7",
+    "astro": "^6.4.8",
     "react": "^19.2.5",
     "react-dom": "^19.2.5",
     "shiki": "^4.0.2"
