@@ -42,9 +42,9 @@ export const sidebar = [
   },
   {
     title: 'Versions',
-    href: '/migration/v0.5',
+    href: '/migration/migrate-from-v0.3',
     items: [
-      { title: 'Migration to v0.4', href: '/migration/v0.4' },
+      { title: 'Migrate from legacy v0.3', href: '/migration/migrate-from-v0.3' },
       { title: 'Legacy docs (v0.3)', href: '/legacy/v0.3/features/rem' },
     ],
   },

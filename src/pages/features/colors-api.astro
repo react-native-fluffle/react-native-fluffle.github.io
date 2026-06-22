@@ -18,58 +18,123 @@ import Footer from '../../components/Footer';
     <main>
       <Content title="Colors API">
         <p>
-          Fluffle provides a built-in <strong>Colors API</strong> that adds support for modern <a
-            href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch"
-            >OKLCH color space</a
-          > while remaining fully compatible with React Native.
+          Fluffle provides a built-in <strong>Colors API</strong> for authoring colors directly in JavaScript
+          while staying fully compatible with React Native.
+        </p>
+
+        <p>
+          It includes helpers for modern and familiar color spaces:
+          <code>oklch()</code>, <code>rgb()</code>, <code>hsl()</code>, and <code>hwb()</code>.
         </p>
 
         <h3>Basic usage</h3>
         <p>
-          Use the <code>Colors.oklch()</code> helper to define perceptual colors inside your styles.
+          Import <code>Colors</code> from Fluffle and use its helpers inside your style objects.
         </p>
 
         <Code
           lang="ts"
           code={`import { StyleSheet, Colors } from '@bibliolab/react-native-fluffle';
 
-const { oklch } = Colors;
+const { oklch, hsl, rgb, hwb } = Colors;
 
 const styles = StyleSheet.create({
   title: {
     color: oklch(0.65, 0.1233, 348.23),
   },
+  subtitle: {
+    color: hsl(220, 18, 35),
+  },
+  badge: {
+    backgroundColor: rgb(37, 99, 235),
+  },
+  muted: {
+    color: hwb(220, 20, 30),
+  },
 });
 `}
         />
 
-        <h3>API</h3>
+        <h3>Available helpers</h3>
 
         <Code
           lang="ts"
-          code={`Colors.oklch(
-  l: number,
-  c: number,
-  h: number,
-  alpha?: number
-)`}
+          code={`Colors.oklch(l, c, h, alpha?)
+Colors.hsl(h, s, l, alpha?)
+Colors.rgb(r, g, b, alpha?)
+Colors.hwb(h, w, b, alpha?)`}
         />
 
         <ul>
-          <li><code>l</code> — Lightness (0–1)</li>
-          <li><code>c</code> — Chroma (color intensity)</li>
-          <li><code>h</code> — Hue (0–360)</li>
-          <li><code>alpha</code> — Optional opacity (default: 1)</li>
+          <li><code>oklch()</code> — Lightness / chroma / hue angle</li>
+          <li><code>hsl()</code> — Hue / saturation / lightness</li>
+          <li><code>rgb()</code> — Red / green / blue channels</li>
+          <li><code>hwb()</code> — Hue angle / whiteness / blackness</li>
+        </ul>
+
+        <h3>Why use the Colors API?</h3>
+
+        <ul>
+          <li>Write color values with a typed JavaScript API instead of raw strings</li>
+          <li>Keep color declarations consistent across your codebase</li>
+          <li>Use modern color spaces like <code>oklch()</code> in React Native projects</li>
+          <li>Let Fluffle handle platform-specific color serialization for you</li>
         </ul>
 
         <h3>How it works</h3>
 
         <ul>
-          <li>On <strong>web</strong>, colors are serialized as native CSS <code>oklch()</code></li>
+          <li>Color helper values are transformed automatically at runtime</li>
           <li>
-            On <strong>native</strong>, colors are converted to hex / hex8 via <code>culori</code>
+            <code>rgb()</code> values are serialized to <code>rgb(...)</code> or <code
+              >rgba(...)</code
+            >
+            strings
           </li>
-          <li>All values are resolved into valid <code>ColorValue</code> types at runtime</li>
+          <li>
+            <code>hsl()</code> values are serialized to <code>hsl(...)</code> or <code
+              >hsla(...)</code
+            >
+            strings
+          </li>
+          <li>
+            <code>oklch()</code> values are serialized as native CSS <code>oklch(...)</code> on
+            <strong>web</strong>
+          </li>
+
+          <li>
+            On <strong>native</strong>, <code>oklch()</code> values are converted to hex or hex8 color
+            strings for React Native compatibility
+          </li>
+          <li>
+            All helpers ultimately resolve to valid React Native <code>ColorValue</code> values
+          </li>
+        </ul>
+
+        <h3>OKLCH</h3>
+
+        <p>
+          <code>oklch()</code> is Fluffle's flagship color helper. It uses the
+          <a
+            href="https://developer.mozilla.org/en-US/docs/Web/CSS/color_value/oklch"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Oklab color space</a
+          >, and is designed to be more perceptually uniform than traditional RGB- or HSL-based
+          color systems.
+        </p>
+
+        <Code lang="ts" code={`Colors.oklch(l: number, c: number, h: number, alpha?: number)`} />
+
+        <ul>
+          <li><code>l</code> — Lightness, from <code>0</code> to <code>1</code></li>
+          <li><code>c</code> — Chroma, which controls color intensity</li>
+          <li><code>h</code> — Hue angle, typically from <code>0</code> to <code>360</code></li>
+          <li>
+            <code>alpha</code> — Optional opacity value from <code>0</code> to <code>1</code> (default:
+            <code>1</code>)
+          </li>
         </ul>
 
         <h3>Why oklch?</h3>
@@ -81,16 +146,103 @@ const styles = StyleSheet.create({
           <li>Improved theme generation and accessibility</li>
         </ul>
 
+        <h3>HSL</h3>
+
+        <p>
+          <code>hsl()</code> is useful when you want to work with hue, saturation, and lightness directly,
+          especially for theme variations and state colors.
+        </p>
+
+        <Code lang="ts" code={`Colors.hsl(h: number, s: number, l: number, alpha?: number)`} />
+
+        <ul>
+          <li><code>h</code> — Hue angle, typically from <code>0</code> to <code>360</code></li>
+          <li>
+            <code>s</code> — Saturation percentage, from <code>0</code> to <code>100</code>. Pass
+            the numeric value only, without the <code>%</code> symbol.
+          </li>
+          <li>
+            <code>l</code> — Lightness percentage, from <code>0</code> to <code>100</code>. Pass the
+            numeric value only, without the <code>%</code> symbol.
+          </li>
+          <li>
+            <code>alpha</code> — Optional opacity value from <code>0</code> to <code>1</code> (default:
+            <code>1</code>)
+          </li>
+        </ul>
+
+        <h3>RGB</h3>
+
+        <p>
+          <code>rgb()</code> provides a straightforward channel-based API for red, green, and blue color
+          values, with optional alpha support.
+        </p>
+
+        <Code lang="ts" code={`Colors.rgb(r: number, g: number, b: number, alpha?: number)`} />
+
+        <ul>
+          <li><code>r</code> — Red channel, from <code>0</code> to <code>255</code></li>
+          <li><code>g</code> — Green channel, from <code>0</code> to <code>255</code></li>
+          <li><code>b</code> — Blue channel, from <code>0</code> to <code>255</code></li>
+          <li>
+            <code>alpha</code> — Optional opacity value from <code>0</code> to <code>1</code> (default:
+            <code>1</code>)
+          </li>
+        </ul>
+
+        <h3>HWB</h3>
+
+        <p>
+          <code>hwb()</code> expresses a color using hue, whiteness, and blackness. It can be a convenient
+          alternative to HSL when building tonal palettes.
+        </p>
+
+        <Code lang="ts" code={`Colors.hwb(h: number, w: number, b: number, alpha?: number)`} />
+
+        <ul>
+          <li><code>h</code> — Hue angle, typically from <code>0</code> to <code>360</code></li>
+          <li>
+            <code>w</code> — Whiteness percentage, from <code>0</code> to <code>100</code>. Pass the
+            numeric value only, without the <code>%</code> symbol.
+          </li>
+          <li>
+            <code>b</code> — Blackness percentage, from <code>0</code> to <code>100</code>. Pass the
+            numeric value only, without the <code>%</code> symbol.
+          </li>
+          <li>
+            <code>alpha</code> — Optional opacity value from <code>0</code> to <code>1</code> (default:
+            <code>1</code>)
+          </li>
+        </ul>
+
         <h3>Notes</h3>
 
         <ul>
-          <li>OKLCH values are automatically transformed at runtime</li>
-          <li>No manual conversion is required</li>
-          <li>Fully compatible with all React Native style properties that accept colors</li>
+          <li>All color helper values are resolved automatically at runtime</li>
+          <li>No manual conversion is required before passing them to React Native styles</li>
+          <li>All helpers can be used anywhere a React Native color value is accepted</li>
           <li>
-            Unlike CSS <code>oklch()</code>, Fluffle uses the standard JavaScript syntax, so values
-            must be comma-separated instead of CSS-style space-separated syntax:
-            <Code lang="ts" code="oklch(0.65, 0.12, 240)" />
+            Fluffle color helpers use normal JavaScript function syntax, so arguments must be
+            comma-separated, not space-separated:
+            <Code
+              lang="ts"
+              code={`oklch(0.65, 0.12, 240, 0.5)
+hsl(220, 18, 35, 0.8)
+rgb(37, 99, 235)
+hwb(220, 20, 30)`}
+            />
+          </li>
+          <li>
+            This differs from CSS color function syntax, where functions such as <code>oklch()</code
+            > and
+            <code>hwb()</code> are commonly written with space-separated values
+          </li>
+          <li>
+            For helpers based on CSS percentage values—such as <code>hsl()</code> and <code
+              >hwb()</code
+            >— pass plain numbers instead of percentage strings. For example, use <code
+              >hsl(220, 18, 35)</code
+            >, not <code>hsl(220, 18%, 35%)</code>.
           </li>
         </ul>
 
