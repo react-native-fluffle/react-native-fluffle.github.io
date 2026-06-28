@@ -1,4 +1,6 @@
 ---
+import ScrollToTop from '../components/ScrollToTop';
+
 interface Props {
   title: string;
 }
@@ -38,5 +40,6 @@ import '../styles/main.scss';
   </head>
   <body>
     <slot />
+    <ScrollToTop client:load />
   </body>
 </html>

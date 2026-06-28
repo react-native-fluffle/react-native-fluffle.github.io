@@ -1,0 +1,58 @@
+@use '../utils' as utils;
+
+.scroll-to-top {
+  @include utils.fluid-size(2rem, 3rem, width);
+  @include utils.fluid-size(2rem, 3rem, height);
+
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.5rem;
+
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+
+  background: var(--clr-base-400);
+  color: var(--clr-neutral-1000);
+
+  display: grid;
+  place-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(12px);
+
+  transition:
+    opacity 180ms ease,
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease,
+    visibility 0s linear 180ms;
+
+  box-shadow: 0 4px 12px rgb(0 0 0 / 0.18);
+
+  &:hover {
+    background: var(--clr-base-500);
+    box-shadow: 0 10px 24px rgb(0 0 0 / 0.3);
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: translateY(0) scale(0.96);
+  }
+
+  &--visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+
+    transition:
+      opacity 180ms ease,
+      transform 180ms ease,
+      visibility 0s;
+  }
+
+  i {
+    @include utils.fluid-size(1rem, 1.25rem, font-size);
+  }
+}
